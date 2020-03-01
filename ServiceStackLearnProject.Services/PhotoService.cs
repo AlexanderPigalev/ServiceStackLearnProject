@@ -48,6 +48,16 @@ namespace ServiceStackLearnProject.Services
 
         }
 
+        public static bool Exist(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            return File.Exists("pictures\\" + fileName);
+        }
+
         /// <summary>
         /// Получает путь, который не занят другой фоткой
         /// </summary>

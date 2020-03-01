@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Mime;
 using Mapster;
 using ServiceStack;
@@ -80,6 +81,15 @@ namespace ServiceStackLearnProject.Services
             }
 
             string filename = PhotoService.GetFreeFileName();
+            PhotoService.Save(Request.Files[0], filename);
+
+            if (!PhotoService.Exist(filename))
+            {
+                return new CreatedUserResponse
+                {
+                    Response = "Ошибка сохранения файла! Пользователь не был создан, попробуйте еще раз."
+                }.ToJson();
+            }
 
             UserMapper.CreateUser(new User
             {
@@ -88,13 +98,10 @@ namespace ServiceStackLearnProject.Services
                 PhotoPath = Resources.LinkToPhotos + filename
             });
 
-            PhotoService.Save(Request.Files[0], filename);
-
             return new CreatedUserResponse
             {
                 Response = $"Студент {request.FirstName} {request.SecondName} был добавлен"
             }.ToJson();
-
         }
     }
 }
