@@ -61,7 +61,7 @@ namespace ServiceStackLearnProject.Services.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на localhost:5001/pictures/.
+        ///   Ищет локализованную строку, похожую на localhost:5000/pictures/.
         /// </summary>
         internal static string LinkToPhotos {
             get {
