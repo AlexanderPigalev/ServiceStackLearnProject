@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using ServiceStack;
 using ServiceStack.Web;
 
@@ -18,6 +19,11 @@ namespace ServiceStackLearnProject.Services
         /// <param name="pathToSave">Название файла</param>
         public static void Save(IHttpFile photoFile, string fileName)
         {
+            if (!Directory.Exists("pictures"))
+            {
+                Directory.CreateDirectory("pictures");
+            }
+            
             #region Проверка на пустоту
 
             _ = photoFile ?? throw new ArgumentNullException(nameof(photoFile));
@@ -48,6 +54,11 @@ namespace ServiceStackLearnProject.Services
         /// <returns>Название файла</returns>
         public static string GetFreeFileName()
         {
+            if (!Directory.Exists("pictures"))
+            {
+                Directory.CreateDirectory("pictures");
+            }
+
             string fileName = RandomString(10) + ".png";
             while (true)
             {

@@ -2,7 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="pictures\**" />
+    <EmbeddedResource Remove="pictures\**" />
+    <None Remove="pictures\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Mapster" Version="5.0.0" />
