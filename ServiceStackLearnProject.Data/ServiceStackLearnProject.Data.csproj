@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.OrmLite.Core" Version="5.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceStackLearnProject.Enteties\ServiceStackLearnProject.Enteties.csproj" />
+  </ItemGroup>
+
+</Project>
