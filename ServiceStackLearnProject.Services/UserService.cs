@@ -22,11 +22,9 @@ namespace ServiceStackLearnProject.Services
         /// </summary>
         /// <param name="request">Запрос</param>
         /// <returns>Список зарегистрированных пользователей</returns>
-        public object Any(GetUserList request)
-        {
-            return UserMapper.Get().ToJson();
-        }
-
+        public object Any(GetUserList request) 
+            => UserMapper.Get().ToJson();
+        
         /// <summary>
         /// Запрос на удаление пользователя
         /// </summary>
@@ -81,9 +79,9 @@ namespace ServiceStackLearnProject.Services
             }
 
             string filename = PhotoService.GetFreeFileName();
-            PhotoService.Save(Request.Files[0], filename);
+            PhotoService.SavePhoto(Request.Files[0], filename);
 
-            if (!PhotoService.Exist(filename))
+            if (!PhotoService.PhotoIsExist(filename))
             {
                 return new CreatedUserResponse
                 {

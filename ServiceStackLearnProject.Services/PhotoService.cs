@@ -17,7 +17,7 @@ namespace ServiceStackLearnProject.Services
         /// </summary>
         /// <param name="photoFile">Файл, отправленный в запросе для сохранения</param>
         /// <param name="pathToSave">Название файла</param>
-        public static void Save(IHttpFile photoFile, string fileName)
+        public static void SavePhoto(IHttpFile photoFile, string fileName)
         {
             if (!Directory.Exists("pictures"))
             {
@@ -48,7 +48,7 @@ namespace ServiceStackLearnProject.Services
 
         }
 
-        public static bool Exist(string fileName)
+        public static bool PhotoIsExist(string fileName)
         {
             if (string.IsNullOrEmpty(fileName))
             {
